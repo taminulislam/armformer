@@ -1,0 +1,15 @@
+torch>=1.8.0
+torchvision>=0.9.0
+mmcv>=2.0.0,<2.2.0
+mmengine>=0.7.0
+mmsegmentation>=1.0.0
+matplotlib
+numpy
+packaging
+prettytable
+scipy
+ftfy
+tensorboard
+wandb
+ipykernel
+

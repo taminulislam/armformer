@@ -1,0 +1,9 @@
+matplotlib
+numpy
+packaging
+prettytable
+scipy
+ftfy
+tensorboard
+wandb
+
