@@ -1,10 +1,11 @@
-# ARMFormer: Attention-Refined Mix Vision Transformer for Thermal Weapon Detection
+# ArmFormer: Lightweight Transformer Architecture for Real-Time Multi-Class Weapon Segmentation and Classification
+
 
 ![ARMFormer Architecture](armformer.jpg)
 
 ## Overview
 
-ARMFormer is an advanced semantic segmentation architecture designed for thermal and RGB weapon detection. The model integrates **Convolutional Block Attention Module (CBAM)** with **Mix Vision Transformer (MViT)** backbone and **Light Harmonic Aggregation Module (LightHAM)** decoder to achieve superior detection performance.
+ArmFormer is an advanced semantic segmentation architecture designed for thermal and RGB weapon detection. The model integrates **Convolutional Block Attention Module (CBAM)** with **Mix Vision Transformer (MViT)** backbone and **Light Harmonic Aggregation Module (LightHAM)** decoder to achieve superior detection performance.
 
 ### Key Features
 
@@ -79,7 +80,7 @@ pip install -r requirements.txt
 
 ### Dataset Preparation
 
-ARMFormer is designed for thermal/RGB weapon detection datasets. Organize your dataset as follows:
+ArmFormer is designed for thermal/RGB weapon detection datasets. Organize your dataset as follows:
 
 ```
 data/

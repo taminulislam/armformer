@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Taminul Islam">
+<meta name="description" content="ArmFormer: A lightweight transformer architecture for real-time multi-class weapon segmentation and classification using thermal and RGB imaging">
+
+<title>ArmFormer | Taminul Islam</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.project-header {
+  text-align: center;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.authors {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.affiliations {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.links-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  background: transparent;
+  color: #495057;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-link:hover {
+  border-color: #750505;
+  color: #750505;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.journal-badge {
+  background: #8b0808;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 0.5rem;
+  cursor: default;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 2rem 0 1rem 0;
+  color: #011627;
+  border-bottom: 3px solid #011627;
+  padding-bottom: 0.5rem;
+}
+
+.abstract-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  border-left: 5px solid #750505;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+pre {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.footer {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  text-align: center;
+  background: #f8f9fa;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .project-header {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+  }
+  
+  .authors {
+    font-size: 1rem;
+  }
+  
+  .affiliations {
+    font-size: 0.9rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.8rem 0;
+  }
+  
+  .abstract-section {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .links-section {
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+  }
+  
+  .project-link, .journal-badge {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    margin: 0.25rem;
+  }
+  
+  main {
+    padding: 0 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+  }
+  
+  main {
+    padding: 0 0.75rem !important;
+  }
+  
+  .abstract-section {
+    padding: 1rem;
+  }
+  
+  .project-link, .journal-badge {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3THLGK2G1N"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
+</script>
+</head>
+
+<body>
+
+<div class="project-header">
+  <div class="container">
+    <h1 class="project-title">ArmFormer: Lightweight Transformer Architecture for Real-Time Multi-Class Weapon Segmentation and Classification</h1>
+  </div>
+</div>
+
+
+<main class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+  <div class="links-section">
+    <a href="https://github.com/taminulislam/ArmFormer" class="project-link" target="_blank">
+      <i class="fab fa-github"></i> Code
+    </a>
+  </div>
+  
+
+  <!-- <div class="abstract-section"> -->
+    <h2 class="section-title">Highlights</h2>
+    <p style="margin-bottom: 0.5rem;">
+      Weapon detection in surveillance systems is critical for public safety and security applications. We introduce <strong>ArmFormer</strong>, 
+      a lightweight transformer-based semantic segmentation framework designed for real-time multi-class weapon detection in both thermal and 
+      RGB imagery. The architecture integrates Convolutional Block Attention Module (CBAM) with Mix Vision Transformer (MViT) and Light Harmonic 
+      Aggregation Module (LightHAM) to achieve superior detection performance while maintaining computational efficiency for deployment on 
+      resource-constrained edge devices.
+    </p>
+    <p><strong>Key Achievements:</strong></p>
+    <ul>
+      <li><strong>Advanced Architecture:</strong> CBAM-enhanced MViT backbone with LightHAM decoder for efficient multi-scale feature fusion</li>
+      <li><strong>Multi-Class Detection:</strong> Simultaneous detection of handguns, rifles, revolvers, knives, and human subjects</li>
+      <li><strong>Real-time Performance:</strong> Optimized for edge device deployment with efficient computational requirements</li>
+      <li><strong>Dual-Modal Support:</strong> Works seamlessly with both thermal and RGB imaging modalities</li>
+      <li><strong>Attention Mechanisms:</strong> Strategic CBAM integration at multiple architecture levels for enhanced feature representation</li>
+      <li><strong>Resource Efficient:</strong> Lightweight design suitable for surveillance cameras and mobile platforms</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">Architecture Overview</h2>
+  <div style="text-align: center; margin: 3rem 0;">
+    <img src="./project_page/archtecture.png" alt="ArmFormer Architecture" style="max-width: 900px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1.5rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto; text-align: left;">
+      <strong>ArmFormer Architecture:</strong> A sophisticated semantic segmentation framework combining CBAM-enhanced Mix Vision Transformer 
+      backbone with Light Harmonic Aggregation Module decoder. The architecture employs hierarchical feature extraction through four transformer 
+      stages with overlap patch merging, each enhanced by CBAM attention modules for improved channel and spatial feature representation. 
+      The LightHAM decoder efficiently aggregates multi-scale features with integrated CBAM attention mechanisms, enabling accurate weapon 
+      segmentation while maintaining computational efficiency suitable for edge device deployment.
+    </p>
+  </div>
+
+  <h2 class="section-title">Motivation & Security Impact</h2>
+  <p>
+    Public safety and security remain paramount concerns in modern society, with weapon detection being a critical component of intelligent 
+    surveillance systems. Traditional weapon detection methods rely on manual monitoring or computationally expensive deep learning models 
+    that are impractical for real-time deployment on edge devices. The integration of thermal and RGB imaging provides robust detection 
+    capabilities across varying lighting conditions and environmental scenarios.
+  </p>
+  <h4 style="color: #3252b3; margin-top: 1.5rem;">Key Challenges Addressed:</h4>
+  <ul>
+    <li><strong>Real-time Processing:</strong> Need for fast, accurate weapon detection in live surveillance feeds</li>
+    <li><strong>Multi-Class Recognition:</strong> Simultaneous detection of diverse weapon types (handguns, rifles, knives) and humans</li>
+    <li><strong>Edge Device Constraints:</strong> Deployment on resource-limited surveillance cameras and mobile platforms</li>
+    <li><strong>Lighting Variations:</strong> Robust performance across different illumination conditions using thermal/RGB fusion</li>
+    <li><strong>Feature Representation:</strong> Effective extraction of discriminative features for accurate weapon identification</li>
+    <li><strong>Computational Efficiency:</strong> Balancing detection accuracy with minimal processing overhead</li>
+  </ul>
+  <p>
+    <strong>Innovation:</strong> ArmFormer addresses these challenges through a carefully designed architecture that integrates attention 
+    mechanisms at strategic points, enabling the model to focus on relevant features while maintaining computational efficiency. The 
+    combination of transformer-based hierarchical feature extraction and lightweight decoder design makes it particularly suitable for 
+    deployment in real-world security and surveillance applications.
+  </p>
+
+  <h2 class="section-title" id="datasets">Dataset & Experimental Setup</h2>
+  
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">Thermal-RGB Weapon Detection Dataset</h3>
+    <img src="./project_page/dataset.png" alt="Dataset Overview" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Figure: Thermal-RGB Weapon Dataset Overview.</strong> The dataset contains synchronized thermal and RGB imagery with 
+      multi-class annotations for weapon detection. Classes include: Background, Handgun, Human, Knife, Rifle, and Revolver. The dataset 
+      provides comprehensive coverage of various weapon types across different scenarios, enabling robust model training and evaluation 
+      for real-world security applications. Images are captured at 512×512 resolution with precise pixel-level annotations.
+    </p>
+  </div>
+
+  <h2 class="section-title">Architecture Components</h2>
+  
+  <div class="row">
+    <div class="col-lg-6 col-md-12 mb-4">
+      <h4 style="color: #3252b3;">CBAM-Enhanced MViT Backbone:</h4>
+      <ul>
+        <li><strong>Hierarchical Structure:</strong> Four-stage transformer encoder with progressive feature extraction</li>
+        <li><strong>Attention Integration:</strong> CBAM modules after each transformer stage for enhanced feature refinement</li>
+        <li><strong>Overlap Patch Merging:</strong> Maintains spatial continuity during downsampling</li>
+        <li><strong>Multi-Scale Features:</strong> Progressive embedding dimensions [32, 64, 160, 256]</li>
+        <li><strong>Channel & Spatial Attention:</strong> Dual attention mechanisms for comprehensive feature enhancement</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4">
+      <h4 style="color: #3252b3;">CBAM-Enhanced LightHAM Decoder:</h4>
+      <ul>
+        <li><strong>Efficient Aggregation:</strong> Light Harmonic Aggregation Module for multi-scale feature fusion</li>
+        <li><strong>Strategic CBAM Placement:</strong> Pre-HAM attention integration for feature refinement</li>
+        <li><strong>Reduced Complexity:</strong> Lightweight design suitable for edge deployment</li>
+        <li><strong>Feature Fusion:</strong> Seamless integration of hierarchical backbone features</li>
+        <li><strong>Multi-Class Output:</strong> Six-class segmentation (5 weapon classes + background)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title">Experimental Results & Analysis</h2>
+  
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">Qualitative Results</h3>
+    <img src="./project_page/qualitative result.png" alt="Qualitative Results" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Figure: Qualitative Segmentation Results.</strong> Visual comparison demonstrating ArmFormer's segmentation performance 
+      across different weapon classes. The model shows accurate boundary delineation and precise classification for handguns, rifles, 
+      knives, and human subjects in both thermal and RGB imagery. The attention mechanisms enable effective feature extraction even in 
+      challenging scenarios with complex backgrounds and varying object scales.
+    </p>
+  </div>
+
+
+
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">Comparative Analysis</h3>
+    <img src="./project_page/fig4.png" alt="Comparative Results" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Figure: Comparative Performance Analysis.</strong> Benchmark comparison of ArmFormer against state-of-the-art semantic 
+      segmentation models. ArmFormer achieves competitive performance while maintaining lower computational requirements, making it 
+      particularly suitable for edge device deployment in security surveillance systems.
+    </p>
+  </div>
+
+  <h2 class="section-title">Quantitative Results</h2>
+  
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">Performance Metrics</h3>
+    <img src="./project_page/tb2.png" alt="Performance Metrics Table" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Table: Detailed Performance Metrics.</strong> Comprehensive quantitative evaluation showing class-wise performance metrics 
+      including IoU, accuracy, precision, recall, and F1-score for each weapon class and overall model performance.
+    </p>
+  </div>
+
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">Ablation Studies</h3>
+    <img src="./project_page/tb3.png" alt="Ablation Study Table" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Table: Ablation Study Results.</strong> Systematic evaluation of ArmFormer components demonstrating the contribution of 
+      CBAM attention modules at different architecture locations and the impact of various design choices on overall performance.
+    </p>
+  </div>
+
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">Computational Efficiency</h3>
+    <img src="./project_page/tb4.png" alt="Efficiency Analysis Table" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Table: Computational Efficiency Analysis.</strong> Comparison of model parameters, FLOPs, inference time, and performance 
+      metrics across different architectures, highlighting ArmFormer's efficiency-performance trade-off for edge deployment.
+    </p>
+  </div>
+
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">Comparison with State-of-the-Art</h3>
+    <img src="./project_page/tb5.png" alt="SOTA Comparison Table" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Table: Comparison with State-of-the-Art Methods.</strong> Comprehensive benchmark against leading semantic segmentation 
+      architectures showing ArmFormer's competitive performance while maintaining resource efficiency.
+    </p>
+  </div>
+
+  <h2 class="section-title">Key Contributions & Impact</h2>
+  <div class="row">
+    <div class="col-lg-6 col-md-12 mb-4">
+      <h4 style="color: #3252b3;">Technical Innovations:</h4>
+      <ul>
+        <li><strong>Hybrid Architecture:</strong> Novel integration of CBAM attention with MViT backbone and LightHAM decoder</li>
+        <li><strong>Strategic Attention:</strong> Multi-level CBAM placement for comprehensive feature enhancement</li>
+        <li><strong>Multi-Class Framework:</strong> Efficient simultaneous detection of multiple weapon types and humans</li>
+        <li><strong>Dual-Modal Processing:</strong> Seamless handling of thermal and RGB imagery</li>
+        <li><strong>Lightweight Design:</strong> Optimized architecture for edge device deployment</li>
+        <li><strong>Feature Aggregation:</strong> Efficient multi-scale feature fusion through LightHAM decoder</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4">
+      <h4 style="color: #3252b3;">Practical Applications:</h4>
+      <ul>
+        <li><strong>Security Surveillance:</strong> Real-time weapon detection in public spaces and critical infrastructure</li>
+        <li><strong>Edge Deployment:</strong> Suitable for surveillance cameras and resource-constrained devices</li>
+        <li><strong>Law Enforcement:</strong> Automated threat detection for rapid response systems</li>
+        <li><strong>Smart Cities:</strong> Integration with urban security and monitoring networks</li>
+        <li><strong>Access Control:</strong> Enhanced security screening in airports and sensitive facilities</li>
+        <li><strong>Mobile Platforms:</strong> Deployment on mobile robots and autonomous security systems</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; margin: 2rem 0; border-left: 5px solid #2E8B57;">
+    <h4 style="color: #011627; margin-bottom: 1rem;">Research Significance</h4>
+    <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 0;">
+      ArmFormer advances the field of automated weapon detection by providing an efficient, accurate, and deployable solution for 
+      real-time security applications. By strategically integrating attention mechanisms with transformer-based architectures and 
+      lightweight decoders, the model achieves competitive performance while maintaining computational efficiency suitable for edge 
+      devices. This research enables widespread deployment of intelligent surveillance systems, contributing to enhanced public safety 
+      and security infrastructure. The multi-class detection capability and dual-modal support make ArmFormer particularly versatile 
+      for diverse security scenarios across varying environmental conditions.
+    </p>
+  </div>
+
+
+<footer class="footer">
+  <p><i class="fa-brands fa-creative-commons"></i> 2025 Taminul Islam</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
