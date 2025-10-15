@@ -41,12 +41,7 @@ results/
 *.pth
 *.log
 
-# Data
-data/
-*.jpg
-*.png
-*.jpeg
-!armformer.jpg
+
 
 # OS
 .DS_Store
